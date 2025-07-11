@@ -29,7 +29,7 @@
             align-items: flex-start;
             padding: 32px;
             box-sizing: border-box;
-            min-height: 70vh; /* 첫 번째 페이지 높이 축소 */
+            min-height: 60vh; /* 첫 번째 페이지 높이 축소: 70vh -> 60vh */
             background-color: #fff; /* 1페이지 흰색 유지 */
         }
 
@@ -67,7 +67,7 @@
         }
 
         .hero-text-container {
-            margin-top: 100px; /* 제목 상단 여백 줄임 */
+            margin-top: 50px; /* 제목 상단 여백 줄임: 100px -> 50px */
             padding-right: 24px;
         }
 
@@ -137,6 +137,12 @@
             opacity: 0; /* 초기에는 숨김 */
             transform: translateY(50px); /* 아래에서 위로 올라오는 효과를 위해 */
             transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 애니메이션 효과 */
+        }
+
+        /* 첫 번째 screenshot-section은 애니메이션 효과를 적용하지 않음 */
+        .screenshot-section:first-child {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .screenshot-section.scroll-animate.active {
@@ -307,7 +313,7 @@
             background-color: #f0f0f0; /* 푸터 옅은회색 */
             color: #555555; /* 글씨 짙은 회색에서 더 옅게 */
             padding: 40px 24px;
-            padding-bottom: 180px; /* 푸터 아래 여백을 50px로 늘림 */
+            padding-bottom: 50px; /* 푸터 아래 여백을 50px로 줄임: 180px -> 50px */
             box-sizing: border-box;
             text-align: left; /* 왼쪽 정렬 */
             font-size: 0.9rem;
@@ -360,7 +366,7 @@
         @media (min-width: 768px) {
             .page-hero {
                 padding: 50px;
-                min-height: 75vh; /* 태블릿에서 첫 번째 페이지 높이 축소 */
+                min-height: 65vh; /* 태블릿에서 첫 번째 페이지 높이 축소: 75vh -> 65vh */
             }
             .top-bar {
                 margin-bottom: 40px; /* 태블릿에서 상단바와 제목 사이 여백 줄임 */
@@ -419,7 +425,7 @@
             }
             .page-footer {
                 padding: 50px 40px;
-                padding-bottom: 180px; /* 태블릿 푸터 아래 여백을 80px로 늘림 */
+                padding-bottom: 80px; /* 태블릿 푸터 아래 여백을 80px로 늘림: 180px -> 80px */
                 font-size: 1rem;
                 text-align: left; /* 태블릿에서도 왼쪽 정렬 유지 */
             }
@@ -436,7 +442,7 @@
         @media (min-width: 1024px) {
             .page-hero {
                 padding: 70px;
-                min-height: 80vh; /* 데스크톱에서 첫 번째 페이지 높이 축소 */
+                min-height: 70vh; /* 데스크톱에서 첫 번째 페이지 높이 축소: 80vh -> 70vh */
             }
             .top-bar {
                 margin-bottom: 50px; /* 데스크톱에서 상단바와 제목 사이 여백 줄임 */
@@ -449,7 +455,7 @@
             }
             .hero-text-container {
                 padding-right: 60px;
-                margin-top: 140px; /* 데스크톱 제목 상단 여백 줄임 */
+                margin-top: 100px; /* 데스크톱 제목 상단 여백 줄임: 140px -> 100px */
             }
             .hero-line {
                 font-size: 4.5vw;
@@ -508,7 +514,7 @@
             }
             .page-footer {
                 padding: 60px 60px;
-                padding-bottom: 200px; /* 데스크톱 푸터 아래 여백을 100px로 늘림 */
+                padding-bottom: 50px; /* 데스크톱 푸터 아래 여백을 50px로 줄임: 200px -> 50px */
                 font-size: 1rem;
                 text-align: left; /* 데스크톱에서도 왼쪽 정렬 유지 */
             }
@@ -693,6 +699,11 @@
 
             const screenshotObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
+                    // 첫 번째 screenshot-section은 애니메이션 효과를 적용하지 않음
+                    if (entry.target === screenshotSections[0]) {
+                        return;
+                    }
+
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
                         observer.unobserve(entry.target); // 한 번만 애니메이션 재생
@@ -700,8 +711,11 @@
                 });
             }, screenshotObserverOptions);
 
-            screenshotSections.forEach((section) => {
-                screenshotObserver.observe(section);
+            screenshotSections.forEach((section, index) => {
+                // 첫 번째 섹션은 Observer에서 제외
+                if (index !== 0) {
+                    screenshotObserver.observe(section);
+                }
             });
 
             // Review section drag-to-scroll functionality
