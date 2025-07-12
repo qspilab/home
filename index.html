@@ -12,11 +12,11 @@
     <meta property="og:url" content="https://qspilab.com" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://qspilab.com" />
-    <link rel="icon" type="image/png" href="https://qspilab.com/images/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/https://qspilab.comimages/favicon.svg" />
-    <link rel="shortcut icon" href="https://qspilab.com/images/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://qspilab.com/images/apple-touch-icon.png" />
-    <link rel="manifest" href="https://qspilab.com/images/site.webmanifest" />
+    <link rel="icon" type="image/png" href="https://qspilab.com/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/https://qspilab.com/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="https://qspilab.com/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://qspilab.com/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="https://qspilab.com/favicon/site.webmanifest" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -25,10 +25,9 @@
             background-color: #fff;
             color: #000;
             overflow-x: hidden;
-            min-height: 105vh; /* 푸터 여백을 위해 전체 문서의 최소 높이 확보 */
+            min-height: 105vh;
         }
 
-        /* First Page (Hero Section) */
         .page-hero {
             display: flex;
             flex-direction: column;
@@ -36,8 +35,8 @@
             align-items: flex-start;
             padding: 32px;
             box-sizing: border-box;
-            min-height: 60vh; /* 첫 번째 페이지 높이 축소: 70vh -> 60vh */
-            background-color: #fff; /* 1페이지 흰색 유지 */
+            min-height: 60vh;
+            background-color: #fff;
         }
 
         .top-bar {
@@ -45,53 +44,52 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin-bottom: 30px; /* 상단바와 제목 사이 여백 줄임 */
+            margin-bottom: 30px;
             font-weight: bold;
             font-size: 1.2rem;
         }
 
-        /* QSPI 텍스트와 로고를 포함하는 새로운 컨테이너 */
         .header-left {
             display: flex;
             align-items: center;
-            gap: 10px; /* 로고와 텍스트 사이 간격 */
+            gap: 10px;
         }
 
         .header-logo {
-            height: 40px; /* 로고 크기 조정 - 기존 30px에서 확대 */
+            height: 40px;
             width: auto;
         }
-
-        /* QSPI 텍스트 제거에 따라 이 스타일은 더 이상 필요 없지만, 혹시 모를 재사용을 위해 남겨둡니다. */
-        /* .header-qspi-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #000;
-        } */
 
         .language-toggle {
             font-size: 1rem;
             color: black;
-            display: flex; /* ko, en을 나란히 배치하기 위해 flex 사용 */
-            gap: 5px; /* ko와 en 사이 간격 */
+            display: flex;
+            gap: 5px;
         }
 
         .language-link {
             text-decoration: none;
-            color: black; /* 기본 색상 */
             font-weight: bold;
         }
 
-        .language-link.active-lang {
-            color: black; /* 활성화된 언어 */
+        /* lang="ko"일 때 'ko'는 검은색, 'en'은 회색 */
+        html[lang="ko"] #lang-ko {
+            color: black;
+        }
+        html[lang="ko"] #lang-en {
+            color: gray;
         }
 
-        .language-link.inactive-lang {
-            color: gray; /* 비활성화된 언어 */
+        /* lang="en"일 때 'en'은 검은색, 'ko'는 회색 */
+        html[lang="en"] #lang-en {
+            color: black;
+        }
+        html[lang="en"] #lang-ko {
+            color: gray;
         }
 
         .hero-text-container {
-            margin-top: 50px; /* 제목 상단 여백 줄임: 100px -> 50px */
+            margin-top: 50px;
             padding-right: 24px;
             margin-bottom: 160px;
         }
@@ -140,9 +138,8 @@
             animation-delay: 0.6s;
         }
 
-        /* Second Page (Screenshot Features Page) */
         .page-screenshot-features {
-            background-color: #f0f3f6; /* 2페이지 배경색 더 옅게 변경 */
+            background-color: #f0f3f6;
             padding: 50px 24px;
             box-sizing: border-box;
             display: flex;
@@ -159,12 +156,11 @@
             max-width: 90%;
             width: 100%;
             gap: 30px;
-            opacity: 0; /* 초기에는 숨김 */
-            transform: translateY(50px); /* 아래에서 위로 올라오는 효과를 위해 */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 애니메이션 효과 */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        /* 첫 번째 screenshot-section은 애니메이션 효과를 적용하지 않음 */
         .screenshot-section:first-child {
             opacity: 1;
             transform: translateY(0);
@@ -176,8 +172,8 @@
         }
 
         .screenshot-description {
-            font-size: 2rem; /* 글자 크기 낮춤 */
-            font-weight: 600; /* 굵기 한단계 낮춤 */
+            font-size: 2rem;
+            font-weight: 600;
             line-height: 1.3;
             word-break: keep-all;
             margin: 0;
@@ -208,9 +204,8 @@
             display: block;
         }
 
-        /* Third Page (Features Section) */
         .page-features {
-            background-color: #ffffff; /* 3페이지 흰색 */
+            background-color: #ffffff;
             padding: 50px 24px;
             min-height: 100vh;
             box-sizing: border-box;
@@ -232,7 +227,7 @@
             background-color: #ffffff;
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* 그림자 좀 더 추가 */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             min-height: 160px;
             display: flex;
             flex-direction: column;
@@ -262,60 +257,55 @@
             line-height: 1.4;
         }
 
-        /* Fourth Page (Review Section) */
         .page-reviews {
-            background-color: #f0f3f6; /* 4페이지 배경색 2페이지와 동일하게 옅게 변경 */
-            padding: 50px 0; /* 좌우 패딩 제거 */
-            padding-bottom: 100px; /* 리뷰 리스트 아래 여백 추가 */
+            background-color: #f0f3f6;
+            padding: 50px 0;
+            padding-bottom: 100px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow: hidden; /* 가로 스크롤 숨김 */
+            overflow: hidden;
         }
 
-        /* "사용자들이 인정한 큐스피" 제목 제거 */
         .reviews-title {
             display: none;
         }
 
         .review-cards-container {
             width: 100%;
-            overflow-x: scroll; /* 가로 스크롤 활성화 */
-            -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
             display: flex;
-            padding: 0 24px; /* 카드 좌우 패딩 */
+            padding: 0 24px;
             box-sizing: border-box;
-            gap: 20px; /* 카드 사이 간격 */
-            scroll-snap-type: x mandatory; /* 스크롤 스냅 효과 */
-            -ms-overflow-style: none;  /* IE and Edge hide scrollbar */
-            scrollbar-width: none;  /* Firefox hide scrollbar */
-            /* 드래그 스크롤을 위한 커서 스타일 */
+            gap: 20px;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
             cursor: grab;
         }
 
-        /* Chrome, Safari, Opera hide scrollbar */
         .review-cards-container::-webkit-scrollbar {
             display: none;
         }
 
-        /* 드래그 중인 상태의 커서 */
         .review-cards-container.active {
             cursor: grabbing;
         }
 
         .review-card {
-            flex: 0 0 auto; /* 카드 크기 고정 */
-            width: 85%; /* 카드 너비 조정 */
-            max-width: 300px; /* 최대 너비 설정 */
-            background-color: #ffffff; /* 요청에 따라 리뷰 카드 배경색 흰색으로 변경 */
+            flex: 0 0 auto;
+            width: 85%;
+            max-width: 300px;
+            background-color: #ffffff;
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            scroll-snap-align: start; /* 스크롤 스냅 시작점 */
+            scroll-snap-align: start;
         }
 
         .review-text {
@@ -333,27 +323,26 @@
             font-weight: 500;
         }
 
-        /* Footer Section */
         .page-footer {
-            background-color: #f0f0f0; /* 푸터 옅은회색 */
-            color: #555555; /* 글씨 짙은 회색에서 더 옅게 */
+            background-color: #f0f0f0;
+            color: #555555;
             padding: 40px 24px;
             padding-bottom: 140px;
             box-sizing: border-box;
-            text-align: left; /* 왼쪽 정렬 */
+            text-align: left;
             font-size: 0.9rem;
-            line-height: 1.5; /* 줄간격 조정 */
+            line-height: 1.5;
         }
 
         .footer-links a {
-            color: #555555; /* 글씨 짙은 회색에서 더 옅게 */
+            color: #555555;
             text-decoration: none;
-            margin-right: 10px; /* 오른쪽 여백 추가 */
+            margin-right: 10px;
             font-weight: bold;
         }
 
         .footer-links span {
-            color: #555555; /* 구분자 색상도 짙은 회색에서 더 옅게 */
+            color: #555555;
         }
 
         .footer-links a:hover {
@@ -361,10 +350,9 @@
         }
 
         .footer-info p {
-            margin: 5px 0; /* p 태그의 기본 margin 제거 및 간격 조절 */
+            margin: 5px 0;
         }
 
-        /* Floating, Centered App Download Button */
         .app-download-btn-floating {
             position: fixed;
             bottom: 24px;
@@ -391,31 +379,28 @@
         @media (min-width: 768px) {
             .page-hero {
                 padding: 50px;
-                min-height: 65vh; /* 태블릿에서 첫 번째 페이지 높이 축소: 75vh -> 65vh */
+                min-height: 65vh;
             }
             .top-bar {
-                margin-bottom: 40px; /* 태블릿에서 상단바와 제목 사이 여백 줄임 */
+                margin-bottom: 40px;
             }
             .header-logo {
-                height: 45px; /* 태블릿 로고 크기 조정 - 기존 35px에서 확대 */
+                height: 45px;
             }
-            /* .header-qspi-text는 제거되었으므로 이 미디어 쿼리 블록에서도 제거 */
             .hero-text-container {
                 padding-right: 120px;
-                margin-top: 30px; /* 태블릿 제목 상단 여백 줄임 */
+                margin-top: 30px;
                 margin-bottom: 10px;
             }
             .hero-line {
                 font-size: 6vw;
             }
 
-            /* Tablet (768px 이상): 2x3 레이아웃 유지 */
             .features-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 25px;
             }
 
-            /* Second Page - Tablet Layout */
             .page-screenshot-features {
                 padding: 70px 40px;
                 gap: 120px;
@@ -430,28 +415,26 @@
                 margin: 0 auto;
             }
             .screenshot-description {
-                font-size: 2.5rem; /* 태블릿에서 글자 크기 낮춤 */
+                font-size: 2.5rem;
             }
 
-            /* Review Section - Tablet Layout */
             .page-reviews {
                 padding: 70px 0;
-                padding-bottom: 120px; /* 태블릿 리뷰 리스트 아래 여백 추가 */
+                padding-bottom: 120px;
             }
-            /* .reviews-title { display: none; } 제거 */
             .review-cards-container {
                 padding: 0 40px;
                 gap: 30px;
             }
             .review-card {
-                width: 45%; /* 태블릿에서 카드 너비 조정 */
+                width: 45%;
                 max-width: 350px;
             }
             .page-footer {
                 padding: 50px 40px;
-                padding-bottom: 140px; /* 태블릿 푸터 아래 여백을 80px로 늘림: 180px -> 80px */
+                padding-bottom: 140px;
                 font-size: 1rem;
-                text-align: left; /* 태블릿에서도 왼쪽 정렬 유지 */
+                text-align: left;
             }
 
             .app-download-btn-floating {
@@ -466,31 +449,28 @@
         @media (min-width: 1024px) {
             .page-hero {
                 padding: 70px;
-                min-height: 70vh; /* 데스크톱에서 첫 번째 페이지 높이 축소: 80vh -> 70vh */
+                min-height: 70vh;
             }
             .top-bar {
-                margin-bottom: 50px; /* 데스크톱에서 상단바와 제목 사이 여백 줄임 */
+                margin-bottom: 50px;
             }
             .header-logo {
-                height: 50px; /* 데스크톱 로고 크기 조정 - 기존 40px에서 확대 */
+                height: 50px;
             }
-            /* .header-qspi-text는 제거되었으므로 이 미디어 쿼리 블록에서도 제거 */
             .hero-text-container {
                 padding-right: 60px;
-                margin-top: 100px; /* 데스크톱 제목 상단 여백 줄임: 140px -> 100px */
+                margin-top: 100px;
                 margin-bottom: 10px;
             }
             .hero-line {
                 font-size: 4.5vw;
             }
 
-            /* Desktop (1024px 이상): 3x2 레이아웃 */
             .features-grid {
                 grid-template-columns: 1fr 1fr 1fr;
                 gap: 30px;
             }
 
-            /* Second Page - Desktop Layout */
             .page-screenshot-features {
                 padding: 100px 60px;
                 gap: 150px;
@@ -510,7 +490,7 @@
                 flex: 1;
                 max-width: 40%;
                 margin-bottom: 0;
-                font-size: 3rem; /* 데스크톱에서 글자 크기 낮춤 */
+                font-size: 3rem;
                 text-align: left;
                 width: auto;
             }
@@ -520,26 +500,24 @@
                 margin: 0;
             }
 
-            /* Review Section - Desktop Layout */
             .page-reviews {
                 padding: 100px 0;
-                padding-bottom: 150px; /* 데스크톱 리뷰 리스트 아래 여백 추가 */
+                padding-bottom: 150px;
             }
-            /* .reviews-title { display: none; } 제거 */
             .review-cards-container {
                 padding: 0 60px;
                 gap: 40px;
             }
             .review-card {
-                width: 30%; /* 데스크톱에서 카드 너비 조정 */
+                width: 30%;
                 max-width: 380px;
-                min-height: 180px; /* 데스크톱에서 최소 높이 증가 */
+                min-height: 180px;
             }
             .page-footer {
                 padding: 60px 60px;
-                padding-bottom: 140px; /* 데스크톱 푸터 아래 여백을 50px로 줄임: 200px -> 50px */
+                padding-bottom: 140px;
                 font-size: 1rem;
-                text-align: left; /* 데스크톱에서도 왼쪽 정렬 유지 */
+                text-align: left;
             }
 
             .app-download-btn-floating {
@@ -558,11 +536,11 @@
         <div class="top-bar">
             <div class="header-left">
                 <img src="images/logo.png" alt="큐스피 로고: 혁신적인 코인 탐색기 QSPI" class="header-logo">
-                </div>
+            </div>
             <div class="language-toggle">
-                <a href="index.html" id="lang-ko" class="language-link">ko</a>
+                <a href="https://qspilab.com/index.html" id="lang-ko" class="language-link">ko</a>
                 <span>|</span>
-                <a href="en/index.html" id="lang-en" class="language-link">en</a>
+                <a href="https://qspilab.com/en/index.html" id="lang-en" class="language-link">en</a>
             </div>
         </div>
 
@@ -570,7 +548,7 @@
             <p class="hero-line gradient-text animate delay-1">큐스피</p>
             <p class="hero-line animate delay-2">차원이 다른 역대급 코인 탐색기</p>
         </div>
-        </div>
+    </div>
 
     <div class="page-screenshot-features">
         <div class="screenshot-section scroll-animate">
@@ -676,8 +654,8 @@
 
     <div class="page-footer">
         <div class="footer-links">
-            <a href="terms-and-conditions-ios-ko.html">이용약관</a>
-            <span> | </span> <a href="privacy-policy-ios-ko.html">개인정보 처리방침</a>
+            <a href="https://qspilab.com/terms-and-conditions-ios-ko.html">이용약관</a>
+            <span> | </span> <a href="https://qspilab.com/privacy-policy-ios-ko.html">개인정보 처리방침</a>
         </div>
         <div class="footer-info">
             <p>큐스피, 서울특별시 강남구 테헤란로77길 11-9 7층</p>
@@ -693,7 +671,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Intersection Observer for scroll animation for feature boxes (third page)
             const featureBoxes = document.querySelectorAll('.feature-box');
             const featureObserverOptions = {
                 root: null,
@@ -715,36 +692,32 @@
                 featureObserver.observe(box);
             });
 
-            // Intersection Observer for scroll animation for screenshot sections (second page)
             const screenshotSections = document.querySelectorAll('.screenshot-section.scroll-animate');
             const screenshotObserverOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.1 // 10%만 보여도 애니메이션 시작
+                threshold: 0.1
             };
 
             const screenshotObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
-                    // 첫 번째 screenshot-section은 애니메이션 효과를 적용하지 않음
                     if (entry.target === screenshotSections[0]) {
                         return;
                     }
 
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // 한 번만 애니메이션 재생
+                        observer.unobserve(entry.target);
                     }
                 });
             }, screenshotObserverOptions);
 
             screenshotSections.forEach((section, index) => {
-                // 첫 번째 섹션은 Observer에서 제외
                 if (index !== 0) {
                     screenshotObserver.observe(section);
                 }
             });
 
-            // Review section drag-to-scroll functionality
             const reviewCardsContainer = document.getElementById('reviewCardsContainer');
             let isDown = false;
             let startX;
@@ -752,7 +725,6 @@
 
             reviewCardsContainer.addEventListener('mousedown', (e) => {
                 isDown = true;
-                // 마우스를 클릭하면 grabbing 커서로 변경
                 reviewCardsContainer.classList.add('active');
                 startX = e.pageX - reviewCardsContainer.offsetLeft;
                 scrollLeft = reviewCardsContainer.scrollLeft;
@@ -760,25 +732,22 @@
 
             reviewCardsContainer.addEventListener('mouseleave', () => {
                 isDown = false;
-                // 마우스가 영역을 벗어나면 grab 커서로 돌아옴
                 reviewCardsContainer.classList.remove('active');
             });
 
             reviewCardsContainer.addEventListener('mouseup', () => {
                 isDown = false;
-                // 마우스를 떼면 grab 커서로 돌아옴
                 reviewCardsContainer.classList.remove('active');
             });
 
             reviewCardsContainer.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
-                e.preventDefault(); // 텍스트 드래그 방지
+                e.preventDefault();
                 const x = e.pageX - reviewCardsContainer.offsetLeft;
-                const walk = (x - startX) * 2; // 스크롤 속도 조절 (2배 빠르게)
+                const walk = (x - startX) * 2;
                 reviewCardsContainer.scrollLeft = scrollLeft - walk;
             });
 
-            // Touch events for mobile drag-to-scroll
             reviewCardsContainer.addEventListener('touchstart', (e) => {
                 isDown = true;
                 startX = e.touches[0].pageX - reviewCardsContainer.offsetLeft;
@@ -796,9 +765,8 @@
                 reviewCardsContainer.scrollLeft = scrollLeft - walk;
             });
 
-            // App Download Button Logic
-            const iosAppStoreUrl = "https://apps.apple.com/kr/app/%ED%81%90%EC%8A%A4%ED%94%BC-%EC%BD%94%EC%9D%B8/id1641223890";
-            const androidPlayStoreUrl = "https://play.google.com/store/apps/details?id=com.qspi.crt&hl=ko";
+            const iosAppStoreUrl = "https://apps.apple.com/kr/app/id1641223890";
+            const androidPlayStoreUrl = "https://play.google.com/store/apps/details?id=com.qspi.crt&utm_source=landing&utm_medium=website&utm_campaign=launch";
 
             function isIOS() {
                 return /iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -807,7 +775,6 @@
                 return /Android/i.test(navigator.userAgent);
             }
 
-            // 플로팅 버튼 클릭 이벤트
             document.getElementById("appDownloadBtnFloating").addEventListener("click", () => {
                 if (isIOS()) {
                     window.location.href = iosAppStoreUrl;
@@ -817,20 +784,6 @@
                     window.open(androidPlayStoreUrl, "_blank");
                 }
             });
-
-            // Language Toggle Logic
-            const currentLang = document.documentElement.lang; // 현재 페이지의 lang 속성 가져오기
-
-            const langKo = document.getElementById('lang-ko');
-            const langEn = document.getElementById('lang-en');
-
-            if (currentLang === 'ko') {
-                langKo.classList.add('active-lang');
-                langEn.classList.add('inactive-lang');
-            } else if (currentLang === 'en') {
-                langEn.classList.add('active-lang');
-                langKo.classList.add('inactive-lang');
-            }
         });
     </script>
 
