@@ -784,15 +784,27 @@
             function isAndroid() {
                 return /Android/i.test(navigator.userAgent);
             }
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) !== 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-11483991186/1vjmCIOyzt4aEJKZ_-Mq',
+                'event_callback': callback
+              });
+              return false;
+            }
 
             document.getElementById("appDownloadBtnFloating").addEventListener("click", () => {
-                if (isIOS()) {
-                    window.location.href = iosAppStoreUrl;
-                } else if (isAndroid()) {
-                    window.location.href = androidPlayStoreUrl;
-                } else {
-                    window.open(androidPlayStoreUrl, "_blank");
-                }
+              if (isIOS()) {
+                gtag_report_conversion(iosAppStoreUrl);
+              } else if (isAndroid()) {
+                gtag_report_conversion(androidPlayStoreUrl);
+              } else {
+                gtag_report_conversion(androidPlayStoreUrl);
+              }
             });
         });
     </script>
