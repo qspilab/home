@@ -7,25 +7,45 @@
     <meta name="description" content="QSPI Coin is an innovative coin explorer that uses AI to predict potential pump coins, helps beginners easily grasp market trends, and provides personalized surge alerts." />
     <meta name="keywords" content="QSPI, coin, cryptocurrency, digital asset, coin analysis, coin prediction, AI coin, pump coin, real-time alerts, crypto investment, crypto app, blockchain" />
     <meta name="author" content="QSPI" />
+
+    <link rel="canonical" href="https://qspilab.com/en" />
+    <link rel="alternate" hreflang="ko" href="https://qspilab.com" />
+    <link rel="alternate" hreflang="en" href="https://qspilab.com/en" />
+    <link rel="alternate" hreflang="x-default" href="https://qspilab.com/en" />
+
     <meta property="og:title" content="QSPI Coin - Next-Level AI-Powered Coin Explorer" />
     <meta property="og:description" content="Experience QSPI Coin, an innovative coin explorer that uses AI to predict potential pump coins, helps beginners easily grasp market trends, and provides personalized surge alerts." />
-    <meta property="og:url" content="https://qspilab.com" />
+    <meta property="og:url" content="https://qspilab.com/en" />
     <meta property="og:type" content="website" />
-    <link rel="canonical" href="https://qspilab.com" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "QSPI",
+      "url": "https://qspilab.com/en",
+      "logo": "https://qspilab.com/favicon/apple-touch-icon.png"
+    }
+    </script>
+
     <link rel="icon" type="image/png" href="https://qspilab.com/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="https://qspilab.com/favicon/favicon.svg" />
     <link rel="shortcut icon" href="https://qspilab.com/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="https://qspilab.com/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="https://qspilab.com/favicon/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
-    
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11483991186"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'AW-11483991186');
+      gtag('config', 'AW-11483991186'); // Google Ads
+      gtag('config', 'G-94QVN65PLY'); // GA4
     </script>
     
     <style>
@@ -347,7 +367,6 @@
         .footer-links a {
             color: #555555;
             text-decoration: none;
-            margin-right: 10px;
             font-weight: bold;
         }
 
@@ -666,8 +685,9 @@
 
     <div class="page-footer">
         <div class="footer-links">
-            <a href="https://qspilab.com/terms-and-conditions-ios-en.html">Terms and Conditions</a>
-            <span> | </span> <a href="https://qspilab.com/privacy-policy-ios-en.html">Privacy Policy</a>
+            <a href="https://qspilab.com/en/howto">How to Use the App</a>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> <a href="https://qspilab.com/terms-and-conditions-ios-en.html">Terms and Conditions</a>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> <a href="https://qspilab.com/privacy-policy-ios-en.html">Privacy Policy</a>
         </div>
         <div class="footer-info">
             <p>QSPI, 7th Floor, 11-9 Teheran-ro 77-gil, Gangnam-gu, Seoul, Republic of Korea</p>
@@ -779,14 +799,13 @@
 
             const iosAppStoreUrl = "https://apps.apple.com/app/id1641223890";
             const androidPlayStoreUrl = "https://play.google.com/store/apps/details?id=com.qspi.crt&utm_source=landing&utm_medium=website&utm_campaign=launch";
-            
+
             function isIOS() {
                 return /iPhone|iPad|iPod/i.test(navigator.userAgent);
             }
             function isAndroid() {
                 return /Android/i.test(navigator.userAgent);
             }
-
             function gtag_report_conversion(url) {
               var callback = function () {
                 if (typeof(url) !== 'undefined') {
